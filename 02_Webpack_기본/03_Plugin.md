@@ -647,7 +647,7 @@ module.exports = {
 };
 ```
 
-- html 파일도 아래처럼 수정해준다
+- 플러그인을 실행하면 html 파일은 아래와 같이 변경된다.
 
 ```html
 <!DOCTYPE html>
@@ -658,11 +658,11 @@ module.exports = {
 
     <!-- TODO: HtmlWebpackPlugin에서 빌드 환경을 주입하도록 웹팩을 구성하세요 -->
     <!-- <title>검색</title> -->
-    <!-- process.env.NODE_ENV npm run build 명령어 실행시, 웹팩에 설정한 env 값이 title 태그 안에 들어가 검색(개발용)과 같이 값이 변경된다  -->
+    <!-- 아래와 같이 코드를 변경한다음 process.env.NODE_ENV npm run build 명령어 실행시, 웹팩에 설정한 env 값이 title 태그 안에 들어가 검색(개발용)과 같이 값이 변경된다  -->
     <title>검색<%= env %></title>
 
     <!-- TODO: HtmlWebpackPlugin에서 엔트리 포인트(main.css)를 로딩하도록 웹팩을 구성하세요 -->
-    <!-- 빌드 후 아래처럼 스타일 파일을 불러오는 코드가 추가된다 -->
+    <!-- MiniCssExtractPlugin 플러그인 추가후 빌드하면 아래처럼 스타일 파일을 불러오는 코드가 추가된다 -->
     <link href="main.css" rel="stylesheet" />
   </head>
   <body>
@@ -687,7 +687,8 @@ module.exports = {
     </div>
 
     <!-- TODO: HtmlWebpackPlugin에서 엔트리 포인트(main.js)를 로딩하도록 웹팩을 구성하세요 -->
-    <!-- 빌드 후 아래처럼 js 파일을 불러오는 코드가 추가된다 -->
+    <!-- HtmlWebpackPlugin 플러그인 추가후 빌드하면 아래처럼 js 파일을 불러오는 코드가 추가된다 -->
+    <!-- 웹팩 설정 중에 entry에 해당하는 파일이 src로 추가되어 있다 -->
     <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
